@@ -1,49 +1,63 @@
-function scrollFooter(scrollY, heightFooter) {
-  console.log(scrollY);
-  console.log(heightFooter);
-
-  if (scrollY >= heightFooter) {
-    document.querySelector("footer").style.bottom = "0px";
-  } else {
-    document.querySelector("footer").style.bottom = "-" + heightFooter + "px";
-  }
-}
-
-// 페이지 로드 완료 시 실행되는 함수
 window.onload = function () {
-  var windowHeight = window.innerHeight,
-    footerHeight = document.querySelector("footer").offsetHeight,
-    heightDocument =
-      windowHeight +
-      document.querySelector(".content").offsetHeight +
-      footerHeight -
-      20;
-
-  // Definindo o tamanho do elemento pra animar
-  document.querySelector(".scroll-animate").style.height =
-    heightDocument + "px";
-  document.querySelector(".scroll-animate-main").style.height =
-    heightDocument + "px";
-
-  // Definindo o tamanho dos elementos header e conteúdo
-  document.querySelector(".jumbo").style.height = windowHeight + "px";
-  document.querySelector(".jumbo").style.lineHeight = windowHeight + "px";
-
-  document.querySelector(".wrapper-parallax").style.marginTop =
-    windowHeight + "px";
-
-  scrollFooter(window.scrollY, footerHeight);
-
-  // ao dar rolagem
-  window.onscroll = function () {
-    var scroll = window.scrollY;
-
-    document.querySelector(".scroll-animate-main").style.top =
-      "-" + scroll + "px";
-
-    document.querySelector(".jumbo").style.backgroundPositionY =
-      50 - (scroll * 100) / heightDocument + "%";
-
-    scrollFooter(scroll, footerHeight);
-  };
+  window.scrollTo(0, 0);
 };
+
+const logo = document.querySelector(".logo");
+const spans = document.querySelectorAll(".logo > span");
+const additionalTexts = document.querySelectorAll(".logo .additional-text");
+const bg = document.querySelector(".bg");
+const bgMask = document.querySelector(".bg_mask");
+const introBox = document.querySelector(".introBox");
+const scrollIndicator = document.querySelector(".scroll-indicator");
+
+scrollIndicator.style.visibility = "hidden";
+
+document.body.style.overflow = "hidden";
+
+logo.addEventListener("mouseover", function () {
+  logo.style.filter = "none";
+  bg.style.filter = "none";
+  bgMask.style.filter = "none";
+});
+
+logo.addEventListener("mouseout", function () {
+  if (!logo.classList.contains("clicked")) {
+    logo.style.filter = "blur(8px)";
+    bg.style.filter = "blur(8px)";
+    bgMask.style.filter = "blur(8px)";
+  }
+});
+
+logo.addEventListener("click", function () {
+  document.body.style.overflow = "auto";
+
+  logo.style.filter = "none";
+  bg.style.filter = "none";
+  bgMask.style.filter = "none";
+
+  if (logo.classList.contains("clicked")) {
+    spans.forEach((span, index) => {
+      span.style.transform = `translateY(0)`;
+    });
+    additionalTexts.forEach((text) => (text.style.opacity = "0"));
+  } else {
+    spans.forEach((span, index) => {
+      span.style.transform = `translateY(${index * 1.5}em)`;
+    });
+    additionalTexts.forEach((text) => (text.style.opacity = "1"));
+  }
+
+  logo.classList.toggle("clicked");
+});
+
+introBox.addEventListener("click", function () {
+  this.classList.toggle("animate");
+
+  if (
+    scrollIndicator.style.visibility === "hidden" ||
+    scrollIndicator.style.opacity === "0"
+  ) {
+    scrollIndicator.style.visibility = "visible";
+    scrollIndicator.style.opacity = "1";
+  }
+});
