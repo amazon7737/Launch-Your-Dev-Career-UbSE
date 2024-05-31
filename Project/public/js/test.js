@@ -16,14 +16,14 @@ document.body.style.overflow = "hidden";
 
 logo.addEventListener("mouseover", function () {
   logo.style.filter = "none";
-  bg.style.filter = "none";
+  if (bg) bg.style.filter = "none";
   bgMask.style.filter = "none";
 });
 
 logo.addEventListener("mouseout", function () {
   if (!logo.classList.contains("clicked")) {
     logo.style.filter = "blur(8px)";
-    bg.style.filter = "blur(8px)";
+    if (bg) bg.style.filter = "blur(8px)";
     bgMask.style.filter = "blur(8px)";
   }
 });
@@ -32,7 +32,7 @@ logo.addEventListener("click", function () {
   document.body.style.overflow = "auto";
 
   logo.style.filter = "none";
-  bg.style.filter = "none";
+  if (bg) bg.style.filter = "none";
   bgMask.style.filter = "none";
 
   if (logo.classList.contains("clicked")) {
@@ -60,4 +60,18 @@ introBox.addEventListener("click", function () {
     scrollIndicator.style.visibility = "visible";
     scrollIndicator.style.opacity = "1";
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const content = document.querySelector(".content");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        content.classList.add("visible");
+      }
+    });
+  });
+
+  observer.observe(content);
 });
