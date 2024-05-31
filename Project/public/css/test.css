@@ -1,178 +1,138 @@
-.scroll-animate {
-  overflow: hidden;
-  position: relative;
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.scroll-animate-main {
+html,
+body {
   width: 100%;
-  left: 0;
-  position: fixed;
-  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.heightPage,
-.heightScroll {
-  width: 10px;
-  top: 0;
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  z-index: 1;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 5rem;
+  color: #fff;
+  filter: blur(8px);
+  transition: filter 0.5s;
+  display: flex;
+  align-items: center;
+}
+
+.logo span.main {
+  position: relative;
+  display: inline-block;
+  transition: transform 2s ease;
+}
+
+.logo .additional-text {
   position: absolute;
-  z-index: 99;
+  left: 100%;
+  white-space: nowrap;
+  font-size: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease, transform 3s ease;
 }
 
-.heightPage {
-  left: 0;
+.logo.clicked .main:nth-child(1) {
+  transform: translate(0px, 20px);
+}
+.logo.clicked .main:nth-child(2) {
+  transform: translate(0px, 40px);
+}
+.logo.clicked .main:nth-child(3) {
+  transform: translate(0px, 60px);
 }
 
-.heightScroll {
-  right: 0;
+.logo.clicked .main:nth-child(1) .additional-text {
+  transform: translate(5px, 110%);
+}
+.logo.clicked .main:nth-child(2) .additional-text {
+  transform: translate(5px, 110%);
+}
+.logo.clicked .main:nth-child(3) .additional-text {
+  transform: translate(5px, 110%);
+}
+
+.introBox {
+  transition: transform 3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.introBox.animate {
+  transform: translate(-40%, -140%);
+}
+
+.intro {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  background-color: black;
 }
 
 .header {
   width: 100%;
+  background-color: white;
   height: 100%;
-  /* no-repeat 50% 50%; */
-  top: 0;
-  position: fixed;
-  z-index: -1;
 }
 
-.footer {
-  width: 100%;
-  height: 300px;
-  background: gray;
-  bottom: -300px;
-  position: fixed;
-  z-index: -1;
-}
-
-.content {
-  height: 1000px;
-  min-height: 1000px;
-  background: #ededed;
-  position: relative;
-  z-index: 1;
-}
-
-.wrapper-parallax {
-  margin-top: 100%;
-  margin-bottom: 300px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-}
-
-h1 {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  /* text-transform: uppercase; */
-  text-align: center;
-  font-family: Helvetica;
-  font-size: 150px;
-  color: #333;
-}
-
-.header h1 {
-}
-
-.content h1 {
-  line-height: 1000px;
-  color: #999;
-}
-
-.footer h1 {
-  line-height: 300px;
-}
-
-.header,
-.footer,
-.scroll-animate-main {
-  -webkit-transition-property: all;
-  -moz-transition-property: all;
-  transition-property: all;
-
-  -webkit-transition-duration: 0.4s;
-  -moz-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-
-  -webkit-transition-timing-function: cubic-bezier(10, 10, 10, 1);
-  -moz-transition-timing-function: cubic-bezier(10, 10, 10, 1);
-  transition-timing-function: cubic-bezier(10, 10, 10, 1);
-}
-
-/*
-            NOTE: This is just an experiment and
-                  could use some changes to improve performance:
-        
-            https://x.com/actualTimWilson/status/1730753841795158313
-        
-            See a production optimized version here: https://charmui.com
-            */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
-
-body {
-  font-family: Inter, sans-serif;
-}
-
-@keyframes jumbo {
-  from {
-    background-position: 50% 50%, 50% 50%;
-  }
-  to {
-    background-position: 350% 50%, 350% 50%;
-  }
-}
-
-.jumbo {
-  --stripes: repeating-linear-gradient(
-    100deg,
-    #fff 0%,
-    #fff 7%,
-    transparent 10%,
-    transparent 12%,
-    #fff 16%
-  );
-  --stripesDark: repeating-linear-gradient(
-    100deg,
-    #000 0%,
-    #000 7%,
-    transparent 10%,
-    transparent 12%,
-    #000 16%
-  );
-  --rainbow: repeating-linear-gradient(
-    100deg,
-    #60a5fa 10%,
-    #e879f9 15%,
-    #60a5fa 20%,
-    #5eead4 25%,
-    #60a5fa 30%
-  );
-  background-image: var(--stripes), var(--rainbow);
-  background-size: 300%, 200%;
-  background-position: 50% 50%, 50% 50%;
-
-  filter: invert(100%); /* 블러 효과 삭제 */
-
-  mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-
-  pointer-events: none;
-}
-
-.jumbo::after {
-  content: "";
+.scroll-indicator {
   position: absolute;
-  inset: 0;
-  background-image: var(--stripes), var(--rainbow);
-  background-size: 200%, 100%;
-  animation: jumbo 60s linear infinite;
-  background-attachment: fixed;
-  mix-blend-mode: difference;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 6.5s ease-in;
 }
 
-.dark .jumbo {
-  background-image: var(--stripesDark), var(--rainbow);
-  filter: invert(100%) opacity(50%) saturate(200%); /* 블러 효과 삭제 */
+.arrow {
+  margin-top: 30px;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+  animation: bounce 2s infinite;
 }
-.dark .jumbo::after {
-  background-image: var(--stripesDark), var(--rainbow);
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
 }
