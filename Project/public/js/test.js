@@ -9,10 +9,12 @@ const bg = document.querySelector(".bg");
 const bgMask = document.querySelector(".bg_mask");
 const introBox = document.querySelector(".introBox");
 const scrollIndicator = document.querySelector(".scroll-indicator");
+const customBody = document.querySelector(".mainContainer");
 
 scrollIndicator.style.visibility = "hidden";
 
 document.body.style.overflow = "hidden";
+customBody.style.overflowY = "hidden";
 
 logo.addEventListener("mouseover", function () {
   logo.style.filter = "none";
@@ -30,6 +32,7 @@ logo.addEventListener("mouseout", function () {
 
 logo.addEventListener("click", function () {
   document.body.style.overflow = "auto";
+  customBody.style.overflowY = "scroll";
 
   logo.style.filter = "none";
   if (bg) bg.style.filter = "none";
@@ -60,18 +63,4 @@ introBox.addEventListener("click", function () {
     scrollIndicator.style.visibility = "visible";
     scrollIndicator.style.opacity = "1";
   }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const content = document.querySelector(".content");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        content.classList.add("visible");
-      }
-    });
-  });
-
-  observer.observe(content);
 });
