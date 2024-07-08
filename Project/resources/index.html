@@ -1,99 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UbSE Lab</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <script src="../public/js/script.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UbSE Lab</title>
-  <link rel="stylesheet" href="../public/css/test.css" />
-  <script src="../public/js/test.js" defer></script>
-</head>
-
-<body>
-  
-
-  <div class="mainContainer">
-
-    <!-- 첫시작 부분입니다. js 로직때문에 로고눌러야 스크롤가능.. -->
-    <header class="intro">
-      <div class="bg"></div>
-      <div class="bg_mask"></div>
-      <div class="introBox">
-        <h1 class="logo">
-          <span class="main">Ub<span class="additional-text">iquitous</span></span>
-          <span class="main">S<span class="additional-text">oftware</span></span>
-          <span class="main">E<span class="additional-text">ngineering</span></span>
-        </h1>
-      </div>
-      <div class="scroll-indicator">
-        <h2>Scroll Down</h2>
-        <div class="arrow"></div>
-      </div>
-    </header>
-
-    <!-- 고정된거같은 효과를 보여주는 section1입니다.. 간단한 소개말을 넣었슴.. -->
-    <div id="section1" class="custom-header">
-      <div class="custom-h1">
-        <div class="firstTitle">
-          <h1>" 개발의 꿈을 키우고, 팀워크의 진정한 가치를 발견하는 UbSE "</h1>
+  <body>
+    <div class="mainContainer">
+      <!-- 첫 시작 부분입니다. js 로직 때문에 로고를 눌러야 스크롤이 가능합니다. -->
+      <header id="top" class="intro">
+        <div class="bg"></div>
+        <div class="bg_mask"></div>
+        <div class="introBox">
+          <h1 class="logo">
+            <span class="main"
+              >Ub<span class="additional-text">iquitous</span></span
+            >
+            <span class="main"
+              >S<span class="additional-text">oftware</span></span
+            >
+            <span class="main"
+              >E<span class="additional-text">ngineering</span></span
+            >
+          </h1>
         </div>
-      </div>
-    </div>
+        <div class="scroll-indicator">
+          <h2>Scroll Down</h2>
+          <div class="arrow"></div>
+        </div>
+      </header>
 
-    <!-- sticky nav bar를 위한 부모 컨테이너 입니다.. 뭐 따로 설정할 필욘없을듯? -->
-    <div>
-      <!-- sticky nav bar입니다.. 위 컨테이너 기준으로 전부 sticky가 됨니다 -->
-      <nav class="topNav">
-        <a href="#section1">section1</a>
-        <a href="#section2">section2</a>
-        <a href="#section3">section3</a>
-        <a href="#section4">section4</a>
-      </nav>
-      <!-- section2 시작부분이구요 ubse가 뭐하는곳인지에 대한 동서대 페이지에 있는거 가져옴.. -->
-      <div id="section2" class="custom-section custom-section1">
+      <!-- 고정된 것 같은 효과를 보여주는 section1입니다. 간단한 소개말을 넣었습니다. -->
+      <div class="custom-header">
         <div class="custom-h1">
-          <div>
-            <h1>UbSE</h1>
-            <h2>유비쿼터스 소프트웨어 공학 연구회</h2>
-          </div>
-          <div>
-            <h3>
-              본 연구실에서는 공학적인 접근방식에 의거하여 효율적이고 신뢰성 높은 소프트웨어를 개발하는데 필요한 소프트웨어 공학 이론과 응용기술을 연구한다. 특히 현재는 스마트 모바일에 대한 지식을 습득하며 안드로이드 및 iOS기반 애플리케이션을 기획 및 개발하고 있으며, 특히 최근에는 도시센싱을 활용하는 IoT응용을 구축하는데 초점을 두고 있다. 본 연구회는 본 연구회는 2008년 창립된 이후, 여러 가지 많은 프로젝트를 통해 나온 결과물을 가지고 교내외 경진대회, 공모전, 학술 엑스포 등에 참가하여 좋은 성과를 거두었다. 본 연구회 학생들은 자격증 취득, 봉사활동 참여, 영어점수 획득, 학점 관리 등을 통해 연구회원 각각의 포토폴리오를 계획적으로 설계하고 이를 알차게 구성해가고 있으며, 100% 취업과 진학을 위해 인성을 갖춘 실력 있는 소프트웨어 개발자로 성장하는 것을 목표로 노력하고 있다.
-            </h3>
+          <div class="firstTitle">
+            <h1>
+              " 개발의 꿈을 키우고, 팀워크의 진정한 가치를 발견하는 UbSE "
+            </h1>
           </div>
         </div>
-      </div>
-      <!-- section3 시작부분이구요 ubse에서의 연구분야가 무엇인지 동서대 페이지에 있는거 가져옴.. -->
-      <div id="section3" class="section2">
-        <div>
-         <h1>연구분야</h1>
-        </div>  
-        <div class="section2Detail">
-          <div class="section2First">
-          <h1>소프트웨어 재사용 기술</h1>
-          <h2>
-            소프트웨어 컴포넌트, 웹 서비스, 소프트웨어 프로덕트라인 등의 소프트웨어 재사용 기술에 대해 연구하고 있습니다. 특히 소프트웨어 프로덕트라인 공학 기술을 통해 재사용 가능한 핵심 자산(assets)을 만들기 위한 소프트웨어 프레임워크 구조를 중심적으로 연구하고 있습니다.
-          </h2>
-          </div class="section2Second">
-          <div>
-          <h1>RFID 미들웨어 기술</h1>
-          <h2>
-            RFID 미들웨어 개발 및 RFID 기반 어플리케이션 개발 프레임워크에 대해 연구하고 있습니다. 즉 RFID 미들웨어로부터의 태그 데이터와 외부 정보서버로부터 수집한 데이터, 이력 정보 및 프로파일 정보, 센서에서 수집되는 실시간 환경 정보를 가공하여 상황 정보를 산출하고 이에 적응하는 응용 어플리케이션을 개발하는 기술에 대해 연구합니다.
-          </h2>
-          </div>
-          <div class="section2Third">
-          <h1>소프트웨어 모델링 및 분석</h1>
-          <h2>
-            소프트웨어 개발 프로세스는 소프트웨어 제품을 개발하기 위해 필요한 과정 또는 구조입니다. 본 연구실에서는 UML 기반 소프트웨어의 모델링 및 설계 기법, 개발방법론 등에 대해 연구합니다.
-          </h2>
-          </div>
-        </div>
-       </div>
       </div>
 
+      <div class="topNavContainer">
+        <!-- sticky nav bar입니다. 위 컨테이너 기준으로 전부 sticky가 됩니다. -->
+        <nav class="topNav">
+          <a href="#top">top</a>
+          <a href="#section1">section1</a>
+          <a href="#section2">section2</a>
+          <a href="#section3">section3</a>
+          <a href="#section4">section4</a>
+        </nav>
+
+        <!-- section2 시작 부분입니다. UbSE가 무엇을 하는 곳인지에 대한 내용을 가져왔습니다. -->
+        <div id="section1" class="custom-section custom-section1">
+          <div class="custom-h1">
+            <div>
+              <h1>UbSE</h1>
+              <h2>유비쿼터스 소프트웨어 공학 연구회</h2>
+            </div>
+            <div>
+              <h3>
+                본 연구실에서는 공학적인 접근방식에 의거하여 효율적이고 신뢰성
+                높은 소프트웨어를 개발하는데 필요한 소프트웨어 공학 이론과
+                응용기술을 연구합니다. 현재는 스마트 모바일에 대한 지식을
+                습득하며 안드로이드 및 iOS 기반 애플리케이션을 기획 및 개발하고
+                있으며, 특히 최근에는 도시센싱을 활용하는 IoT 응용을 구축하는데
+                초점을 두고 있습니다. 본 연구회는 2008년 창립된 이후, 여러 가지
+                프로젝트를 통해 나온 결과물을 가지고 교내외 경진대회, 공모전,
+                학술 엑스포 등에 참가하여 좋은 성과를 거두고 있습니다. 본 연구회
+                학생들은 자격증 취득, 봉사활동 참여, 영어 점수 획득, 학점 관리
+                등을 통해 연구회원 각각의 포트폴리오를 계획적으로 설계하고 이를
+                알차게 구성해가고 있으며, 100% 취업과 진학을 위해 인성을 갖춘
+                실력 있는 소프트웨어 개발자로 성장하는 것을 목표로 노력하고
+                있습니다.
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- section3 시작 부분입니다. UbSE에서의 연구 분야가 무엇인지에 대한 내용을 가져왔습니다. -->
+        <div id="section2" class="mainSection">
+          <div>
+            <h1>연구분야</h1>
+          </div>
+          <div class="section2Detail">
+            <div class="section2First">
+              <h1>소프트웨어 재사용 기술</h1>
+              <h2>
+                소프트웨어 컴포넌트, 웹 서비스, 소프트웨어 프로덕트라인 등의
+                소프트웨어 재사용 기술에 대해 연구하고 있습니다. 특히 소프트웨어
+                프로덕트라인 공학 기술을 통해 재사용 가능한 핵심 자산(assets)을
+                만들기 위한 소프트웨어 프레임워크 구조를 중심적으로 연구하고
+                있습니다.
+              </h2>
+            </div>
+            <div class="section2Second">
+              <h1>RFID 미들웨어 기술</h1>
+              <h2>
+                RFID 미들웨어 개발 및 RFID 기반 어플리케이션 개발 프레임워크에
+                대해 연구하고 있습니다. 즉, RFID 미들웨어로부터의 태그 데이터와
+                외부 정보 서버로부터 수집한 데이터, 이력 정보 및 프로파일 정보,
+                센서에서 수집되는 실시간 환경 정보를 가공하여 상황 정보를
+                산출하고 이에 적응하는 응용 어플리케이션을 개발하는 기술에 대해
+                연구합니다.
+              </h2>
+            </div>
+            <div class="section2Third">
+              <h1>소프트웨어 모델링 및 분석</h1>
+              <h2>
+                소프트웨어 개발 프로세스는 소프트웨어 제품을 개발하기 위해
+                필요한 과정 또는 구조입니다. 본 연구실에서는 UML 기반
+                소프트웨어의 모델링 및 설계 기법, 개발 방법론 등에 대해
+                연구합니다.
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <div id="section3" class="underContainer">
+          <div class="mainSection custom-section2">
+            <h1>안녕하세요</h1>
+          </div>
+
+          <div id="section4" class="mainSection custom-section3">
+            <h1>나는 지도입니다.</h1>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
