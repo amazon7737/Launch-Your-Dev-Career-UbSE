@@ -64,3 +64,4 @@ introBox.addEventListener("click", function () {
     scrollIndicator.style.opacity = "1";
   }
 });
+
